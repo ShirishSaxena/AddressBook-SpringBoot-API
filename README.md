@@ -3,7 +3,6 @@ Simple springboot API for addressBook. Supports all REST controllers and have cu
 
 ### Setup
 
-
 1. **Clone the application**
 
 	```bash
@@ -51,7 +50,27 @@ Simple springboot API for addressBook. Supports all REST controllers and have cu
 
 ## Updates
 	* To be added
-  
+
+## Error codes
+```
+   POST Mapping
+	P100 : firstName is required and can not be null or empty. { "firstName" : "yourName"}
+	P101 : lastName is required and can not be null or empty. { "lastName" : "yourName"}
+	P102 : Email is required and can not be null or empty. { "email" : "valid@email"}
+	P103 : phoneNo is required and can not be null or empty.
+	P104 : address is required and can not be null or empty.
+
+	P111 : Not a valid email.
+	P112 : Duplicate email found.
+	P121 : Duplicate PhoneNo found.
+
+   PUT Mapping
+	U100 : Invalid body to update record.
+
+   DELETE Mapping
+	D100 : Parameter not in id or email.
+```
+
 # API supports all REST mappings (GET, POST, PUT, DELETE)
 All of these requests made in these screenshot are from remote database with about 200ms ping, so response is slow.
 ### GET requests

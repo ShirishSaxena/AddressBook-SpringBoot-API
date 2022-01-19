@@ -50,6 +50,13 @@ Simple springboot API for addressBook. Supports all REST controllers and have cu
 
 ## Updates
 	* To be added
+	
+## Further Improvements
+ - Implement findByPhoneNo to GET,PUT,DELETE req.
+ - Improve queries to saveAll
+
+## Assumptions
+ Assumed that in an addressBook, email and PhoneNo will always be unique. And per record can have atmost 1 phoneNo and Email.
 
 ## Error codes
 ```

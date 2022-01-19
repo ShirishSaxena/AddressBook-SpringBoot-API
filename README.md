@@ -72,7 +72,7 @@ Simple springboot API for addressBook. Supports all REST controllers and have cu
 ```
 
 # API supports all REST mappings (GET, POST, PUT, DELETE)
-All of these requests made in these screenshot are from remote database with about 200ms ping, so response is slow.
+All of the requests made in these screenshot are from remote database with about 200ms ping, so response is slow.
 ### GET requests
 * Get all records saved in the addressBook.
 	```

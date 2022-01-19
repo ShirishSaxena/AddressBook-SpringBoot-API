@@ -52,5 +52,75 @@ Simple springboot API for addressBook. Supports all REST controllers and have cu
 ## Updates
 	* To be added
   
-## API supports all REST mappings (GET, POST, PUT, DELETE)
+# API supports all REST mappings (GET, POST, PUT, DELETE)
+All of these requests made in these screenshot are from remote database with about 200ms ping, so response is slow.
 ### GET requests
+* Get all records saved in the addressBook.
+	```
+	localhost:7090/api/getAll
+	```
+	
+	![image](https://user-images.githubusercontent.com/6762915/150171183-4eeb3bda-9d9a-4910-89c2-7f798faf2280.png)
+
+* Get By ID or EmailAddress (Both are Unique field)
+	```
+	localhost:7090/api/get/{parameter}
+	```
+	
+	![gif](http://200.showy.life:6969/rc6hArgBmZ.gif)
+	
+### POST requests (with error handling)
+* Add single record 
+	```
+	localhost:7090/api/
+	
+	{
+		"firstName" : "firstName",
+		"lastName" : "lastName",
+		"email" : "valid@email",
+		"address" : "Any address???",
+		"phoneNo" : "000000000"
+	}
+	```
+
+	
+	![image](http://200.showy.life:6969/ZqSSbctdEV.gif)
+	
+* Add multiple records
+	```
+	localhost:7090/api/saveAll
+	[
+	{
+		"firstName" : "firstName",
+		"lastName" : "lastName",
+		"email" : "valid@email",
+		"address" : "Any address???",
+		"phoneNo" : "000000000"
+	},
+	
+	{
+		"firstName" : "firstName",
+		"lastName" : "lastName",
+		"email" : "valid@email",
+		"address" : "Any address???",
+		"phoneNo" : "000000000"
+	}
+	
+	]
+	```
+	
+	![image](http://200.showy.life:6969/IgHAfj31NE.gif)
+
+
+### DELETE requests (Support delete by either id or email)
+	```
+	localhost:7090/api/
+	```
+![image](http://200.showy.life:6969/nIFHIq7bVM.gif)
+
+### PUT requests (need id or email to not be null)
+	```
+	localhost:7090/api/
+	```
+
+![image](http://200.showy.life:6969/0PSIsehkdY.gif)

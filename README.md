@@ -41,7 +41,7 @@ Simple springboot API for addressBook. Supports all REST controllers and have cu
 4. **Generate Logs (Optional)**
 	```pip install pyperclip```
 	
-	Run `Generate Random POST Requests.py`
+	Run `sampleGenerator.py`
 	Change these variables as needed
 	```
 	count = 20 # generate count no of random records

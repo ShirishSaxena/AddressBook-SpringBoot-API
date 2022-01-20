@@ -2,7 +2,7 @@
 Simple springboot API for addressBook with redis cache. Supports all REST controllers and have custom error handling for every specific case.
 
 ## Updates
-	* 20-Jan-2022
+	* 20-Jan-2022 (v0.0.2)
 	   = Added support to get by phoneNo to method that gets record by either Id or email.
 	   - Changed getMapping from /api/get/ to /api/
 	   - Improved code to get records by id/email/phoneNo (all 3 are unique)

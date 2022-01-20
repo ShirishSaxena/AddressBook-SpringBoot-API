@@ -12,14 +12,14 @@ import java.util.TimeZone;
 @SpringBootApplication
 public class AddressBookApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AddressBookApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AddressBookApplication.class, args);
+    }
 
-	@PostConstruct
-	public void init() {
-		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));   // It will set UTC timezone
-		System.out.println("\nSpring boot application running in UTC timezone :" + new Date() + "\n");
-	}
+    @PostConstruct
+    public void init() {
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));   // It will set UTC timezone
+        System.out.println("\nSpring boot application running in UTC timezone :" + new Date() + "\n");
+    }
 
 }

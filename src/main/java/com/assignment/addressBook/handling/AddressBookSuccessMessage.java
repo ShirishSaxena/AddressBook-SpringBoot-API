@@ -1,7 +1,5 @@
 package com.assignment.addressBook.handling;
 
-import java.sql.Timestamp;
-
 public class AddressBookSuccessMessage {
     private String status = "success";
 
@@ -12,14 +10,14 @@ public class AddressBookSuccessMessage {
 
     private String comment;
 
-    public AddressBookSuccessMessage(Long totalRecords, Long startTime, Long endTime, String comment){
+    public AddressBookSuccessMessage(Long totalRecords, Long startTime, Long endTime, String comment) {
         this.totalRecords = totalRecords;
         this.totalTime_Seconds = (Float.valueOf(endTime - startTime) / 1000);
         this.requestPerSecond = totalRecords / totalTime_Seconds;
         this.comment = comment;
     }
 
-    public AddressBookSuccessMessage(String status, Long totalRecords, Long startTime, Long endTime, String comment){
+    public AddressBookSuccessMessage(String status, Long totalRecords, Long startTime, Long endTime, String comment) {
         this.status = status;
         this.totalRecords = totalRecords;
         this.totalTime_Seconds = (Float.valueOf(endTime - startTime) / 1000);

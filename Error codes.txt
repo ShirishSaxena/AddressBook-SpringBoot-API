@@ -1,0 +1,40 @@
+GET Mapping
+G100 : No records by id.
+G101 : No records by Email.
+G102 : No records by PhoneNo.
+G103 : No records by Name(First And/Or Last).
+
+POST Mapping (RequestBody validation)
+P100 : firstName is required and can not be null or empty. { "firstName" : "yourName"}
+P101 : lastName is required and can not be null or empty. { "lastName" : "yourName"}
+P102 : Email is required and can not be null or empty. { "email" : "valid@email"}
+P103 : phoneNo is required and can not be null or empty.
+P104 : address is required and can not be null or empty.
+
+P111 : Not a valid email.
+P112 : Duplicate email found.
+P121 : Duplicate PhoneNo found.
+
+PUT Mapping
+U100 : No record found to update [id/email].
+
+DELETE Mapping
+D100 : Parameter not in id or email.
+
+
+[
+    {
+        "firstName" : "Nelson",
+        "lastName" : "Hayes",
+        "email" : "nelson.hayes@example.com",
+        "address" : "2265, Brown Terrace, Rockhampton, South Australia, Australia(8731)",
+        "phoneNo" : "05-1492-3926"
+    },
+	{
+        "firstName" : "Nelson",
+        "lastName" : "Hayes",
+        "email" : "nelson.hayes@example.com",
+        "address" : "2265, Brown Terrace, Rockhampton, South Australia, Australia(8731)",
+        "phoneNo" : "05-1492-3926"
+    }
+]

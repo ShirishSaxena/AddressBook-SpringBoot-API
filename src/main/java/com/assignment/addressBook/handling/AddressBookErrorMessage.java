@@ -2,10 +2,8 @@ package com.assignment.addressBook.handling;
 
 import org.springframework.validation.FieldError;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class AddressBookErrorMessage {
@@ -17,9 +15,9 @@ public class AddressBookErrorMessage {
     public AddressBookErrorMessage(List<FieldError> fieldErrorList) {
         HashMap<String, String> map = new HashMap<>();
         int err_count = 0;
-        for(FieldError fieldError : fieldErrorList){
+        for (FieldError fieldError : fieldErrorList) {
             String[] splitError = fieldError.getDefaultMessage().split(" : ");
-            if(!map.containsKey(splitError[0])){
+            if (!map.containsKey(splitError[0])) {
                 map.put(splitError[0], splitError[1]);
                 err_count++;
             }
@@ -33,9 +31,9 @@ public class AddressBookErrorMessage {
         HashMap<String, String> map = new HashMap<>();
         int err_count = 0;
         this.comment = comment;
-        for(String errorMsg : errorMsgs){
+        for (String errorMsg : errorMsgs) {
             String[] splitMsg = errorMsg.split(" : ");
-            if(!map.containsKey(splitMsg[0])){
+            if (!map.containsKey(splitMsg[0])) {
                 map.put(splitMsg[0], splitMsg[1]);
                 err_count++;
             }
@@ -48,9 +46,9 @@ public class AddressBookErrorMessage {
         HashMap<String, String> map = new HashMap<>();
         int err_count = 0;
         this.comment = comment;
-        for(String errorMsg : errorMsgs){
+        for (String errorMsg : errorMsgs) {
             String[] splitMsg = errorMsg.split(" : ");
-            if(!map.containsKey(splitMsg[0])){
+            if (!map.containsKey(splitMsg[0])) {
                 map.put(splitMsg[0], splitMsg[1]);
                 err_count++;
             }

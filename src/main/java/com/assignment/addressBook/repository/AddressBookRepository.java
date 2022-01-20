@@ -9,10 +9,20 @@ public interface AddressBookRepository extends JpaRepository<AddressBookEntity, 
 
 
     AddressBookEntity findByPhoneNo(String phoneNo);
+
     AddressBookEntity findByEmail(String email);
 
     List<AddressBookEntity> findByFirstName(String firstName);
+
     List<AddressBookEntity> findByLastName(String lastName);
+
     List<AddressBookEntity> findByAddress(String address);
+
+
+    AddressBookEntity findByEmailOrPhoneNo(String email, String phoneNo);
+
+    List<AddressBookEntity> findByFirstNameOrLastName(String firstName, String lastName);
+
+    List<AddressBookEntity> findByFirstNameAndLastName(String firstName, String lastName);
 
 }

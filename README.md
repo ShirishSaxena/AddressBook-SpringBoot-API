@@ -7,6 +7,13 @@ Simple springboot API for addressBook with redis cache. Supports all REST contro
 	   - Changed getMapping from /api/get/ to /api/
 	   - Improved code to get records by id/email/phoneNo (all 3 are unique)
 	   - Added redis cache to more methods with cacheEvict key entries on save/saveAll/Update/delete.
+	  
+## Assumptions
+ - Assumed that in an addressBook, email and PhoneNo will always be unique. And per record can have atmost 1 phoneNo and Email.
+ - And that no one is using existing database with duplicate entries.
+ - Any record in the database is unique for field email and phoneNo.
+ - For now phoneNo field doesn't have any number validation regex, which I do plan on adding it in next update cycle. So with that said, one can input email or any other field as PhoneNo, that might contradict with findBy methods. I hope atleast until v.0.3 no one does :3
+ 
 	
 ### Setup
 
@@ -57,11 +64,8 @@ Simple springboot API for addressBook with redis cache. Supports all REST contro
 
 	
 ## Further Improvements
- - Implement findByPhoneNo to GET,PUT,DELETE req.
+ - Implement findByPhoneNo to GET,PUT,DELETE req. (Added 20-Jan-22 update)
  - Improve queries to saveAll
-
-## Assumptions
- Assumed that in an addressBook, email and PhoneNo will always be unique. And per record can have atmost 1 phoneNo and Email.
 
 ## Error codes
 ```

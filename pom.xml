@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.assignment</groupId>
 	<artifactId>addressBook</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>addressBook</name>
 	<description>Assignment 4th(AddressBook) in Springboot</description>
 	<properties>

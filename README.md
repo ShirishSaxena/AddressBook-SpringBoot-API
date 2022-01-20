@@ -1,6 +1,13 @@
 # AddressBook-SpringBoot-API
 Simple springboot API for addressBook with redis cache. Supports all REST controllers and have custom error handling for every specific case.
 
+## Updates
+	* 20-Jan-2022
+	   = Added support to get by phoneNo to method that gets record by either Id or email.
+	   - Changed getMapping from /api/get/ to /api/
+	   - Improved code to get records by id/email/phoneNo (all 3 are unique)
+	   - Added redis cache to more methods with cacheEvict key entries on save/saveAll/Update/delete.
+	
 ### Setup
 
 1. **Clone the application**
@@ -48,8 +55,6 @@ Simple springboot API for addressBook with redis cache. Supports all REST contro
 	```
 	It'll generate List of POST req and copy to your clipboard. Finally, paste it on POSTMAN...
 
-## Updates
-	* To be added
 	
 ## Further Improvements
  - Implement findByPhoneNo to GET,PUT,DELETE req.
@@ -60,7 +65,13 @@ Simple springboot API for addressBook with redis cache. Supports all REST contro
 
 ## Error codes
 ```
-   POST Mapping
+   GET Mapping
+	G100 : No records by id.
+	G101 : No records by Email.
+	G102 : No records by PhoneNo.
+	G103 : No records by Name(First And/Or Last).
+
+   POST Mapping (RequestBody validation)
 	P100 : firstName is required and can not be null or empty. { "firstName" : "yourName"}
 	P101 : lastName is required and can not be null or empty. { "lastName" : "yourName"}
 	P102 : Email is required and can not be null or empty. { "email" : "valid@email"}
@@ -72,7 +83,7 @@ Simple springboot API for addressBook with redis cache. Supports all REST contro
 	P121 : Duplicate PhoneNo found.
 
    PUT Mapping
-	U100 : Invalid body to update record.
+	U100 : No record found to update [id/email].
 
    DELETE Mapping
 	D100 : Parameter not in id or email.
@@ -83,18 +94,33 @@ All of the requests made in these screenshot are from remote database with about
 ### GET requests
 * Get all records saved in the addressBook.
 	```
-	localhost:7090/api/getAll
+	localhost:7090/api/getAll/
 	```
 	
 	![image](https://user-images.githubusercontent.com/6762915/150171183-4eeb3bda-9d9a-4910-89c2-7f798faf2280.png)
 
-* Get By ID or EmailAddress (Both are Unique field)
+* Get By ID or EmailAddress or PhoneNo(all are Unique field)
 	```
-	localhost:7090/api/get/{parameter}
+	localhost:7090/api/{parameter}
 	```
 	
 	![gif](http://200.showy.life:6969/rc6hArgBmZ.gif)
 	
+	
+* Get By FirstName or LastName or both
+       ```
+       localhost:7090/api/getName/{param}
+       
+       param here can be single word, that is it will find that word in both firstName and LastName.
+       or it can have single space {ex. Adam Evee} then it'll find all matching records having firstName as 'Adam' and lastName as 'Evee'.
+       
+* Get By Address
+       ```
+       localhost:7090/api/getAddress/{param}
+       ```
+       Finds all records matching the param in address field of database.
+       
+       
 ### POST requests (with error handling)
 * Add single record 
 	```

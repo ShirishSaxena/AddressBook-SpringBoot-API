@@ -2,11 +2,14 @@
 Simple springboot API for addressBook with redis cache. Supports all REST controllers and have custom error handling for every specific case.
 
 ## Updates
+	* 21-Jan-2022 (v0.0.3)
+	   - Changed default caching to redis cache.
+	   - On testing using remote redis server, I found 2-5ms overhead verse testing on local redis server.
 	* 20-Jan-2022 (v0.0.2)
 	   - Added support to get by phoneNo to method that gets record by either Id or email.
 	   - Changed getMapping from /api/get/ to /api/
 	   - Improved code to get records by id/email/phoneNo (all 3 are unique)
-	   - Added redis cache to more methods with cacheEvict key entries on save/saveAll/Update/delete.
+	   - Added cache to more methods with cacheEvict key entries on save/saveAll/Update/delete.
 	  
 ## Assumptions
  - Assumed that in an addressBook, email and PhoneNo will always be unique. And per record can have atmost 1 phoneNo and Email.

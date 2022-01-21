@@ -5,6 +5,7 @@ Simple springboot API for addressBook with redis cache. Supports all REST contro
 	* 21-Jan-2022 (v0.0.3)
 	   - Changed default caching to redis cache.
 	   - On testing using remote redis server, I found 2-5ms overhead verse testing on local redis server.
+	   
 	* 20-Jan-2022 (v0.0.2)
 	   - Added support to get by phoneNo to method that gets record by either Id or email.
 	   - Changed getMapping from /api/get/ to /api/

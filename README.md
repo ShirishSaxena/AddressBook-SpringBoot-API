@@ -73,7 +73,7 @@ Simple springboot API for addressBook with redis cache. Supports all REST contro
 
 ## Error codes
 ```
-   GET Mapping
+   GET Mapping 
 	G100 : No records by id.
 	G101 : No records by Email.
 	G102 : No records by PhoneNo.

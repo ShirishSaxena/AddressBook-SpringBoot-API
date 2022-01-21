@@ -171,8 +171,10 @@ All of the requests made in these screenshot are from remote database with about
 	
 	]
 	```
-	
 	![image](http://200.showy.life:6969/IgHAfj31NE.gif)
+	
+	### Tested on same server as mysql-server
+	![tested on same server as mysql](https://user-images.githubusercontent.com/6762915/150513960-e0921c3c-8c6c-4f6b-b4d0-af2bd4fdc132.png)
 
 
 ### DELETE requests (Support delete by either id or email)

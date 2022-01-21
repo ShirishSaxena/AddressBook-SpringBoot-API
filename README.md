@@ -1,6 +1,8 @@
 # AddressBook-SpringBoot-API
 Simple springboot API for addressBook with redis cache. Supports all REST controllers and have custom error handling for every specific case.
 
+```Redis cache working on remote server gif is available @ https://bit.ly/33R55W2```
+
 ## Updates
 	* 21-Jan-2022 (v0.0.3)
 	   - Changed default caching to redis cache.

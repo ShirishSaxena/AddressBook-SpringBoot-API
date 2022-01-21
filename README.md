@@ -54,7 +54,7 @@ Simple springboot API for addressBook with redis cache. Supports all REST contro
 
 	```bash
 	mvn package
-	java -jar target/addressBook-0.0.1-SNAPSHOT.jar
+	java -jar target/addressBook-0.0.3-SNAPSHOT.jar
 	```
 4. **Generate Logs (Optional)**
 	```pip install pyperclip```

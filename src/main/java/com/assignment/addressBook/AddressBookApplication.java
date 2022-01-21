@@ -2,6 +2,7 @@ package com.assignment.addressBook;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 
 import javax.annotation.PostConstruct;

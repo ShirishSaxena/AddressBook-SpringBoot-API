@@ -2,9 +2,11 @@ package com.assignment.addressBook.repository;
 
 import com.assignment.addressBook.model.AddressBookEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.redis.core.RedisHash;
 
 import java.util.List;
 
+@RedisHash
 public interface AddressBookRepository extends JpaRepository<AddressBookEntity, Long> {
 
 

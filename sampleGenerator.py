@@ -12,7 +12,7 @@ Needs pyperclip
 
 URL = "https://randomuser.me/api/?inc=name,location,email,phone&noinfo"
 
-count = 1;
+count = 50;
 
 def generateRecords():
     finalStr = '''['''

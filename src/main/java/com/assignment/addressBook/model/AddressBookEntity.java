@@ -11,6 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
@@ -19,7 +20,9 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "addrBook")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
-public class AddressBookEntity {
+public class AddressBookEntity implements Serializable {
+
+    private static final long serialVersionUID = -4439114469417994311L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_addrbook")

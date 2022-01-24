@@ -5,6 +5,12 @@ All of the releases, remote SQL and redis-server will be made unavailable as soo
 ```Redis cache working on remote server gif is available @ https://bit.ly/33R55W2```
 
 ## Updates
+	* 24-Jan-2022 (v0.0.4)
+	   - Added apache kafka for now it have both producer and consumer with 3 topics.
+	   - New get API that generates analytics from JSON data gather by Kafka producer (localhost:7090/api/analytics).
+	   - Kafka for now have 2 broker in different DC with replication factor of 2 to prevent data loss in case one Kafka broker is down.
+	   - As well as, 3 partitions for each topic to load balance messages between servers and have better horizontal scaling.
+	   	   
 	* 21-Jan-2022 (v0.0.3)
 	   - Changed default caching to redis cache.
 	   - On testing using remote redis server, I found 2-5ms overhead verse testing on local redis server.

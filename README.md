@@ -4,6 +4,8 @@ All of the releases, remote SQL and redis-server will be made unavailable as soo
 
 ```Redis cache working on remote server gif is available @ https://bit.ly/33R55W2```
 
+Kafka WEB UI available [here](http://500.shirish.xyz:4050/)
+
 ## Updates
 	* 24-Jan-2022 (v0.0.4)
 	   - Added apache kafka for now it have both producer and consumer with 3 topics.

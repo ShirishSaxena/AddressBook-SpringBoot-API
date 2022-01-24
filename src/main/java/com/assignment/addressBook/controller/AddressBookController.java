@@ -4,8 +4,10 @@ package com.assignment.addressBook.controller;
 import com.assignment.addressBook.handling.AddressBookErrorMessage;
 import com.assignment.addressBook.model.AddressBookEntity;
 import com.assignment.addressBook.service.AddressBookService;
+import com.assignment.addressBook.service.KafkaConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.support.MethodArgumentNotValidException;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
@@ -23,7 +25,23 @@ import java.util.Map;
 public class AddressBookController {
 
     @Autowired
+    private KafkaConsumerService kafkaConsumerService;
+
+    @Autowired
     private AddressBookService addressBook;
+
+    @Autowired
+    private KafkaTemplate<String, Object> KafkaSender;
+
+    private static String topic_rec_add = "ab_added";
+    private static String topic_rec_update = "ab_updated";
+    private static String topic_rec_delete = "ab_deleted";
+
+
+    @GetMapping("/analytics")
+    public String getAnalytics(){
+        return kafkaConsumerService.toString();
+    }
 
     @GetMapping("/getAll")
     public List<AddressBookEntity> getAllRecords() {
@@ -55,29 +73,41 @@ public class AddressBookController {
     public Object AddRecord(@RequestBody @Valid AddressBookEntity addressRecord, Errors errors) {
         if (errors.hasFieldErrors()) {
             List<FieldError> fieldErrors = errors.getFieldErrors();
-            return new AddressBookErrorMessage(fieldErrors);
+            AddressBookErrorMessage addressBookErrorMessage =  new AddressBookErrorMessage(fieldErrors);
+            KafkaSender.send(topic_rec_add, addressBookErrorMessage);
+            return addressBookErrorMessage;
+
         }
-        return addressBook.saveRecord(addressRecord);
+        Object saveOutput = addressBook.saveRecord(addressRecord);
+        KafkaSender.send(topic_rec_add, saveOutput);
+        return saveOutput;
     }
 
     @PostMapping("/saveAll")
     public Object AddRecords(@RequestBody List<AddressBookEntity> addressRecords) {
-        return addressBook.saveAll(addressRecords);
+        Object getOut = addressBook.saveAll(addressRecords);
+        KafkaSender.send(topic_rec_add, getOut);
+        return getOut;
     }
 
     @PutMapping()
     public Object updateRecord(@RequestBody @Valid AddressBookEntity addressRecord, Errors errors) {
         if (errors.hasFieldErrors()) {
             List<FieldError> fieldErrors = errors.getFieldErrors();
-            return new AddressBookErrorMessage(fieldErrors);
+            AddressBookErrorMessage addressBookErrorMessage = new AddressBookErrorMessage(fieldErrors);
+            KafkaSender.send(topic_rec_update, addressBookErrorMessage);
+            return addressBookErrorMessage;
         }
-
-        return addressBook.updateRecord(addressRecord);
+        Object getOut = addressBook.updateRecord(addressRecord);
+        KafkaSender.send(topic_rec_update, getOut);
+        return getOut;
     }
 
     @DeleteMapping("{param}")
     public Object deleteRecord(@PathVariable String param) {
-        return addressBook.delete(param);
+        Object getOut = addressBook.delete(param);
+        KafkaSender.send(topic_rec_delete, getOut);
+        return getOut;
     }
 
 

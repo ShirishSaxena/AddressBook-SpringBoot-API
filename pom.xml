@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.assignment</groupId>
 	<artifactId>addressBook</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>addressBook</name>
-	<description>Assignment 4th(AddressBook) in Springboot</description>
+	<description>Assignment 4th(AddressBook) in Springboot with Redis cache and Kafka</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
